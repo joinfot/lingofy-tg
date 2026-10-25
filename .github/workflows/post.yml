@@ -2,6 +2,9 @@ name: telegram-posts
 on:
   schedule:
     - cron: "*/15 * * * *"
+  push:
+    branches: [main]
+    paths: ["queue.json", "ping.txt", "post.py", ".github/workflows/post.yml"]
   workflow_dispatch:
     inputs:
       ids:
