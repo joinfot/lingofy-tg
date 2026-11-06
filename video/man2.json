@@ -1,0 +1,242 @@
+[
+ {
+  "key": "f1_wohin",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 7,
+  "chars": 175,
+  "text": "Куда или где? Один предлог, два падежа.\n\n«Я кладу книгу на стол».\n\n«Книга лежит на столе».\n\n«Я иду в кино».\n\n«Я сижу в кино».\n\n«Повесь куртку в шкаф».\n\n«Куртка висит в шкафу»."
+ },
+ {
+  "key": "f1_wohin",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 7,
+  "chars": 202,
+  "text": "Wechselpräpositionen: wohin oder wo?\n\nIch lege das Buch auf den Tisch.\n\nDas Buch liegt auf dem Tisch.\n\nIch gehe ins Kino.\n\nIch sitze im Kino.\n\nHäng die Jacke in den Schrank.\n\nDie Jacke hängt im Schrank."
+ },
+ {
+  "key": "f2_dativverben",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 7,
+  "chars": 172,
+  "text": "Шесть глаголов, которые требуют Dativ.\n\n«Я помогаю другу».\n\n«Мне нравится эта песня».\n\n«Эта сумка принадлежит мне».\n\n«Я благодарю тебя».\n\n«Куртка тебе идёт».\n\n«Ответь мне»."
+ },
+ {
+  "key": "f2_dativverben",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 7,
+  "chars": 157,
+  "text": "Verben mit Dativ — sechs Stück.\n\nIch helfe meinem Freund.\n\nDas Lied gefällt mir.\n\nDie Tasche gehört mir.\n\nIch danke dir.\n\nDie Jacke steht dir.\n\nAntworte mir."
+ },
+ {
+  "key": "f3_komposita",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 7,
+  "chars": 202,
+  "text": "Угадаешь слово по двум половинкам?\n\nЧто такое der Handschuh?\n\nЧто такое der Staubsauger?\n\nЧто такое das Feuerzeug?\n\nЧто такое der Krankenwagen?\n\nЧто такое die Schildkröte?\n\nЧто такое der Reißverschluss?"
+ },
+ {
+  "key": "f3_komposita",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 7,
+  "chars": 141,
+  "text": "Komposita: zwei Wörter, ein Sinn.\n\nder Handschuh.\n\nder Staubsauger.\n\ndas Feuerzeug.\n\nder Krankenwagen.\n\ndie Schildkröte.\n\nder Reißverschluss."
+ },
+ {
+  "key": "g1_post",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 6,
+  "chars": 175,
+  "text": "Пять фраз для похода на почту.\n\nЯ хотел бы отправить посылку.\n\nСколько идёт отправление?\n\nМне нужен трек-номер.\n\nМожете отправить это заказным?\n\nОтправление потерялось в пути."
+ },
+ {
+  "key": "g1_post",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 6,
+  "chars": 210,
+  "text": "Fünf Sätze für die Post.\n\nIch möchte ein Paket schicken.\n\nWie lange dauert der Versand?\n\nIch brauche eine Sendungsnummer.\n\nKönnen Sie das als Einschreiben schicken?\n\nDie Sendung ist unterwegs verloren gegangen."
+ },
+ {
+  "key": "g2_bewerbung",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 6,
+  "chars": 176,
+  "text": "Пять фраз для собеседования.\n\nЯ три года работал разработчиком.\n\nВ чём ваши сильные стороны?\n\nЯ свободен с января.\n\nКак устроено введение в должность?\n\nБуду рад обратной связи."
+ },
+ {
+  "key": "g2_bewerbung",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 6,
+  "chars": 218,
+  "text": "Fünf Sätze fürs Vorstellungsgespräch.\n\nIch habe drei Jahre als Entwickler gearbeitet.\n\nWas sind Ihre Stärken?\n\nIch bin ab Januar verfügbar.\n\nWie sieht die Einarbeitung aus?\n\nIch würde mich über eine Rückmeldung freuen."
+ },
+ {
+  "key": "g3_kuendigung",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 6,
+  "chars": 198,
+  "text": "Пять фраз, чтобы расторгнуть договор.\n\nЯ хочу расторгнуть договор.\n\nКогда истекает срок отказа?\n\nПодтвердите расторжение письменно.\n\nДоговор продлевается автоматически.\n\nЯ возражаю против продления."
+ },
+ {
+  "key": "g3_kuendigung",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 6,
+  "chars": 229,
+  "text": "Fünf Sätze für die Kündigung.\n\nIch möchte meinen Vertrag kündigen.\n\nWann läuft die Kündigungsfrist ab?\n\nBitte bestätigen Sie die Kündigung schriftlich.\n\nDer Vertrag verlängert sich automatisch.\n\nIch widerspreche der Verlängerung."
+ },
+ {
+  "key": "h1_verspaetung",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 13,
+  "chars": 300,
+  "text": "Опаздываешь на работу. Что писать?\n\nДоброе утро, я сегодня опоздаю.\n\nА что случилось?\n\nЭлектричку отменили.\n\nСколько тебе нужно времени?\n\nПримерно полчаса.\n\nХорошо, я предупрежу.\n\nСпасибо тебе!\n\nБез паники, добирайся спокойно.\n\nНа встречу в десять успею.\n\nОтлично, подождём.\n\nДо скорого!\n\nДо скорого!"
+ },
+ {
+  "key": "h1_verspaetung",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 13,
+  "chars": 298,
+  "text": "Ich komme heute später.\n\nGuten Morgen, ich komme heute später.\n\nWas ist denn los?\n\nDie S-Bahn fällt aus.\n\nWie lange brauchst du?\n\nEtwa eine halbe Stunde.\n\nOkay, ich sage Bescheid.\n\nDanke dir!\n\nKein Stress, komm gut an.\n\nDas Meeting um zehn schaffe ich.\n\nSuper, wir warten.\n\nBis gleich!\n\nBis gleich!"
+ },
+ {
+  "key": "h2_verschieben",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 13,
+  "chars": 335,
+  "text": "Как перенести встречу и не обидеть.\n\nЗдравствуйте, госпожа Вебер, короткий вопрос.\n\nДа, пожалуйста.\n\nМожем перенести встречу?\n\nКонечно. А на когда?\n\nЧетверг тоже подошёл бы?\n\nЧетверг, к сожалению, занят.\n\nА в пятницу утром?\n\nВ пятницу в девять можно.\n\nОтлично, спасибо за понимание.\n\nСейчас внесу в календарь.\n\nДо пятницы!\n\nДо встречи!"
+ },
+ {
+  "key": "h2_verschieben",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 13,
+  "chars": 320,
+  "text": "Einen Termin verschieben.\n\nHallo Frau Weber, eine kurze Frage.\n\nJa, gerne.\n\nKönnen wir den Termin verschieben?\n\nNatürlich. Auf wann denn?\n\nGinge Donnerstag auch?\n\nDonnerstag ist leider voll.\n\nUnd Freitag früh?\n\nFreitag um neun geht.\n\nPerfekt, danke für Ihr Verständnis.\n\nIch trage es gleich ein.\n\nBis Freitag!\n\nBis dann!"
+ },
+ {
+  "key": "h3_kleinanzeigen",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 13,
+  "chars": 317,
+  "text": "Продаёшь вещь. Как вести переписку.\n\nЗдравствуйте, куртка ещё есть?\n\nДа, ещё в наличии.\n\nКакой это размер?\n\nРазмер M, почти не ношена.\n\nЕсть дефекты?\n\nТолько маленькая царапина на молнии.\n\nВозьмёте сорок евро?\n\nСорок пять, и я отправлю сегодня.\n\nСогласен.\n\nОплата переводом?\n\nДа, пришлите реквизиты.\n\nСделаю, спасибо!"
+ },
+ {
+  "key": "h3_kleinanzeigen",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 13,
+  "chars": 368,
+  "text": "Verkaufen auf Kleinanzeigen.\n\nHallo, ist die Jacke noch da?\n\nJa, sie ist noch zu haben.\n\nWelche Größe ist das?\n\nGröße M, kaum getragen.\n\nGibt es Mängel?\n\nNur ein kleiner Kratzer am Reißverschluss.\n\nWürden Sie vierzig Euro nehmen?\n\nFünfundvierzig, dann schicke ich heute los.\n\nEinverstanden.\n\nZahlung per Überweisung?\n\nJa, schicken Sie mir die Daten.\n\nMache ich, danke!"
+ },
+ {
+  "key": "i1_verschmelzung",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 6,
+  "chars": 352,
+  "text": "Пять фраз, где забывают слить предлог.\n\nzu + dem сливается в zum. Раздельно говорят, только когда нужно указать на конкретный вокзал.\n\nС днями недели всегда am: am Montag, am Wochenende.\n\nin + dem = im. Раздельная форма звучит книжно и в обычной речи не идёт.\n\nzu + der = zur. Слияние здесь обязательно.\n\nbei + dem = beim. Та же логика, что у zum и im."
+ },
+ {
+  "key": "i1_verschmelzung",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 6,
+  "chars": 159,
+  "text": "zu dem oder zum? Die Verschmelzung.\n\nIch fahre zum Bahnhof.\n\nWir treffen uns am Montag.\n\nIch bin im Kino.\n\nSie geht zur Arbeit.\n\nDas Geschäft ist beim Bahnhof."
+ },
+ {
+  "key": "i2_fragen",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 6,
+  "chars": 373,
+  "text": "Пять вопросов, заданных не в том порядке.\n\nПосле вопросительного слова сразу идёт глагол, потом подлежащее.\n\nГлагол стоит вторым и в вопросе тоже.\n\nГлагол на второе место, nicht уезжает в конец.\n\nВозвратное uns идёт после подлежащего, а не перед ним.\n\nВ вопросе без вопросительного слова глагол идёт первым. С интонацией поймут и первый вариант, но нейтральная форма — эта."
+ },
+ {
+  "key": "i2_fragen",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 6,
+  "chars": 123,
+  "text": "Fragen: wo steht das Verb?\n\nWas machst du?\n\nWo wohnst du?\n\nWarum kommst du nicht?\n\nWann treffen wir uns?\n\nKommst du morgen?"
+ },
+ {
+  "key": "i3_pronomen",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 6,
+  "chars": 242,
+  "text": "Пять фраз, где путают ihn и ihm.\n\nsehen требует Akkusativ: ihn. Форма ihm — это Dativ.\n\nhelfen наоборот требует Dativ: ihm.\n\nТа же пара: helfen с Dativ, значит mir.\n\nanrufen идёт с Akkusativ: ich rufe dich an.\n\ngehören с Dativ и без предлога."
+ },
+ {
+  "key": "i3_pronomen",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 6,
+  "chars": 125,
+  "text": "Akkusativ oder Dativ beim Pronomen.\n\nIch sehe ihn.\n\nIch helfe ihm.\n\nKannst du mir helfen?\n\nIch rufe dich an.\n\nDas gehört mir."
+ },
+ {
+  "key": "j1_geld",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 7,
+  "chars": 164,
+  "text": "Шесть слов из немецких счетов.\n\nсчёт к оплате.\n\nнапоминание о просрочке.\n\nсписание со счёта.\n\nпостоянное поручение банку.\n\nостаток, деньги на счету.\n\nвозврат денег."
+ },
+ {
+  "key": "j1_geld",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 13,
+  "chars": 340,
+  "text": "Sechs Wörter rund ums Konto.\n\ndie Rechnung.\n\nDie Rechnung kommt per Post.\n\ndie Mahnung.\n\nNach zwei Wochen kommt eine Mahnung.\n\ndie Lastschrift.\n\nIch zahle per Lastschrift.\n\nder Dauerauftrag.\n\nDie Miete läuft über einen Dauerauftrag.\n\ndas Guthaben.\n\nAuf der Karte ist noch Guthaben.\n\ndie Rückerstattung.\n\nDie Rückerstattung dauert zehn Tage."
+ },
+ {
+  "key": "j2_lernen",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 7,
+  "chars": 139,
+  "text": "Шесть слов про учёбу и экзамены.\n\nязыковой курс.\n\nэкзамен.\n\nсдать экзамен.\n\nпровалить экзамен.\n\nсвидетельство, аттестат.\n\nдомашнее задание."
+ },
+ {
+  "key": "j2_lernen",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 13,
+  "chars": 318,
+  "text": "Sechs Wörter für Kurs und Prüfung.\n\nder Sprachkurs.\n\nIch besuche einen Sprachkurs.\n\ndie Prüfung.\n\nDie Prüfung ist nächste Woche.\n\nbestehen.\n\nIch habe die Prüfung bestanden.\n\ndurchfallen.\n\nEr ist leider durchgefallen.\n\ndas Zeugnis.\n\nDas Zeugnis bekommst du per Post.\n\ndie Hausaufgabe.\n\nHast du die Hausaufgaben gemacht?"
+ },
+ {
+  "key": "j3_winter",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 7,
+  "chars": 117,
+  "text": "Шесть слов про зиму и гололёд.\n\nскользкий.\n\nпосыпать солью или песком.\n\nзимние шины.\n\nтуман.\n\nмёрзнуть.\n\nмокрый снег."
+ },
+ {
+  "key": "j3_winter",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 13,
+  "chars": 284,
+  "text": "Sechs Wörter für den Winter.\n\nglatt.\n\nVorsicht, die Straße ist glatt.\n\nstreuen.\n\nDer Hausmeister streut Salz.\n\ndie Winterreifen.\n\nFaustregel: von Oktober bis Ostern.\n\nder Nebel.\n\nMorgens liegt oft Nebel.\n\nfrieren.\n\nIch friere an den Händen.\n\nder Schneeregen.\n\nDraußen ist Schneeregen."
+ }
+]
