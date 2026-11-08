@@ -1,0 +1,242 @@
+[
+ {
+  "key": "k1_imperativ",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 7,
+  "chars": 200,
+  "text": "Скажи это как команду: шесть повелительных.\n\n«Иди сюда» — другу.\n\n«Дай мне ручку» — другу.\n\n«Езжайте прямо» — вежливо.\n\n«Будь спокоен» — другу.\n\n«Читай громче» — другу.\n\n«Подождите немного» — вежливо."
+ },
+ {
+  "key": "k1_imperativ",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 7,
+  "chars": 136,
+  "text": "Der Imperativ: du, ihr oder Sie?\n\nKomm her!\n\nGib mir den Stift.\n\nFahren Sie geradeaus.\n\nSei ruhig.\n\nLies lauter.\n\nWarten Sie bitte kurz."
+ },
+ {
+  "key": "k2_wissen",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 7,
+  "chars": 172,
+  "text": "Три немецких «знать». Какое куда?\n\n«Я знаю его».\n\n«Я знаю, где он живёт».\n\n«Я умею плавать».\n\n«Ты знаешь этот город?».\n\n«Я не знаю» — в ответ на вопрос.\n\n«Я знаю немецкий»."
+ },
+ {
+  "key": "k2_wissen",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 7,
+  "chars": 148,
+  "text": "wissen, kennen oder können?\n\nIch kenne ihn.\n\nIch weiß, wo er wohnt.\n\nIch kann schwimmen.\n\nKennst du diese Stadt?\n\nIch weiß nicht.\n\nIch kann Deutsch."
+ },
+ {
+  "key": "k3_datum",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 7,
+  "chars": 181,
+  "text": "Какого числа? Шесть вопросов про даты.\n\n«Сегодня третье мая».\n\n«Я приеду первого июня».\n\n«Восьмое ноября».\n\n«С первого января».\n\n«Двадцатое».\n\nШапка письма: «Мюнхен, 8 ноября 2026»."
+ },
+ {
+  "key": "k3_datum",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 7,
+  "chars": 186,
+  "text": "Das Datum: Ordnungszahlen richtig sagen.\n\nHeute ist der dritte Mai.\n\nIch komme am ersten Juni.\n\nder achte November.\n\nab dem ersten Januar.\n\nder zwanzigste.\n\nMünchen, den achten November."
+ },
+ {
+  "key": "l1_krankmeldung",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 6,
+  "chars": 200,
+  "text": "Пять фраз, чтобы отпроситься по болезни.\n\nЯ сегодня, к сожалению, не смогу прийти.\n\nУ меня больничный.\n\nСправку донесу позже.\n\nС какого дня нужна справка от врача?\n\nДам знать, как только станет легче."
+ },
+ {
+  "key": "l1_krankmeldung",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 6,
+  "chars": 208,
+  "text": "Fünf Sätze für die Krankmeldung.\n\nIch kann heute leider nicht kommen.\n\nIch bin krankgeschrieben.\n\nIch reiche die Krankmeldung nach.\n\nAb wann brauche ich ein Attest?\n\nIch melde mich, sobald es mir besser geht."
+ },
+ {
+  "key": "l2_fuehrerschein",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 6,
+  "chars": 183,
+  "text": "Пять фраз про права и автошколу.\n\nХочу переоформить права.\n\nКакие документы для этого нужны?\n\nТеорию надо пересдавать?\n\nСколько ещё действуют старые права?\n\nУ меня запись в автошколу."
+ },
+ {
+  "key": "l2_fuehrerschein",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 6,
+  "chars": 258,
+  "text": "Fünf Sätze rund um den Führerschein.\n\nIch möchte meinen Führerschein umschreiben lassen.\n\nWelche Unterlagen brauche ich dafür?\n\nMuss ich die Theorieprüfung wiederholen?\n\nWie lange ist mein alter Führerschein gültig?\n\nIch habe einen Termin bei der Fahrschule."
+ },
+ {
+  "key": "l3_versicherung",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 6,
+  "chars": 166,
+  "text": "Пять фраз про страховку.\n\nУ меня государственная страховка.\n\nУ вас есть страховка ответственности?\n\nСтраховка покрывает расходы.\n\nХочу сменить тариф.\n\nКакая франшиза?"
+ },
+ {
+  "key": "l3_versicherung",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 6,
+  "chars": 216,
+  "text": "Fünf Sätze über Versicherungen.\n\nIch bin gesetzlich versichert.\n\nHaben Sie eine Haftpflichtversicherung?\n\nDie Versicherung übernimmt die Kosten.\n\nIch möchte meinen Tarif wechseln.\n\nWie hoch ist die Selbstbeteiligung?"
+ },
+ {
+  "key": "m1_weihnachtsmarkt",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 13,
+  "chars": 375,
+  "text": "Договориться про рождественский рынок.\n\nПойдём в этом году на рождественский рынок?\n\nКонечно, когда?\n\nВ пятницу после работы?\n\nПодходит. Какой рынок?\n\nНа Мариенплац самый красивый.\n\nНо там всегда толпа.\n\nТогда в шесть, пока не набилось.\n\nХорошая мысль. Глинтвейн с меня.\n\nНе забудь про залог за кружку.\n\nТочно, три евро, да?\n\nИменно. До пятницы!\n\nДо встречи, одевайся теплее!"
+ },
+ {
+  "key": "m1_weihnachtsmarkt",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 13,
+  "chars": 396,
+  "text": "Verabredung auf dem Weihnachtsmarkt.\n\nGehen wir dieses Jahr auf den Weihnachtsmarkt?\n\nKlar, wann denn?\n\nFreitag nach der Arbeit?\n\nPasst. Welcher Markt?\n\nDer am Marienplatz ist am schönsten.\n\nDa ist es aber immer voll.\n\nDann um sechs, bevor es voll wird.\n\nGute Idee. Glühwein zahle ich.\n\nDenk an das Pfand für die Tasse.\n\nStimmt, drei Euro, oder?\n\nGenau. Bis Freitag!\n\nBis dann, zieh dich warm an!"
+ },
+ {
+  "key": "m2_reklamation",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 13,
+  "chars": 339,
+  "text": "Блюдо не то. Как сказать и не поссориться.\n\nИзвините, суп холодный.\n\nОй, прошу прощения. Принесу другой.\n\nСпасибо. И паста со сливками.\n\nВы заказывали без?\n\nДа, специально без.\n\nПоменяем, извините.\n\nНе проблема, спасибо.\n\nСуп за счёт заведения.\n\nЭто очень мило с вашей стороны.\n\nЧто-нибудь ещё?\n\nНет, спасибо, это всё.\n\nПриятного аппетита!"
+ },
+ {
+  "key": "m2_reklamation",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 13,
+  "chars": 376,
+  "text": "Reklamation im Restaurant.\n\nEntschuldigung, die Suppe ist kalt.\n\nOh, das tut mir leid. Ich bringe Ihnen eine neue.\n\nDanke. Und die Nudeln sind mit Sahne.\n\nHatten Sie ohne bestellt?\n\nJa, ausdrücklich ohne.\n\nDas tauschen wir aus, Entschuldigung.\n\nKein Problem, danke.\n\nDie Suppe geht aufs Haus.\n\nDas ist nett von Ihnen.\n\nSonst noch etwas?\n\nNein danke, das war's.\n\nGuten Appetit!"
+ },
+ {
+  "key": "m3_sportverein",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 13,
+  "chars": 380,
+  "text": "Записаться в спортивный клуб.\n\nЗдравствуйте, интересуюсь вашим клубом.\n\nОтлично! Какой вид спорта?\n\nВолейбол, начинающий.\n\nПо вторникам есть группа для начинающих.\n\nМожно прийти на пробную тренировку?\n\nКонечно, два раза даже бесплатно.\n\nСколько потом взнос?\n\nДвенадцать евро в месяц.\n\nСвоя обувь нужна?\n\nДа, зальные. И со светлой подошвой.\n\nПонял, тогда до вторника.\n\nСупер, ждём!"
+ },
+ {
+  "key": "m3_sportverein",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 13,
+  "chars": 413,
+  "text": "Anmeldung beim Sportverein.\n\nHallo, ich interessiere mich für euren Verein.\n\nSchön! Welche Sportart?\n\nVolleyball, als Anfänger.\n\nDienstags haben wir eine Anfängergruppe.\n\nKann ich zum Probetraining kommen?\n\nKlar, zweimal sogar kostenlos.\n\nWas kostet der Beitrag danach?\n\nZwölf Euro im Monat.\n\nBrauche ich eigene Schuhe?\n\nHallenschuhe, ja. Helle Sohle bitte.\n\nAlles klar, dann bis Dienstag.\n\nSuper, wir freuen uns!"
+ },
+ {
+  "key": "n1_verbpraep",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 6,
+  "chars": 348,
+  "text": "Пять глаголов, у которых свой предлог.\n\nwarten всегда с auf и Akkusativ, хотя по-русски «жду тебя» без предлога.\n\ndenken an — думать о ком-то. denken über тоже есть, но значит «иметь мнение».\n\nüber — о том, что уже случилось. auf — о том, что ещё впереди.\n\nnach всегда с Dativ, без исключений.\n\nsich erinnern an идёт с Akkusativ: an ihn, не an ihm."
+ },
+ {
+  "key": "n1_verbpraep",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 6,
+  "chars": 162,
+  "text": "Verben mit fester Präposition.\n\nIch warte auf dich.\n\nIch denke an dich.\n\nIch freue mich über das Geschenk.\n\nSie fragt nach der Adresse.\n\nIch erinnere mich an ihn."
+ },
+ {
+  "key": "n2_adjpraep",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 6,
+  "chars": 274,
+  "text": "Пять прилагательных со своим предлогом.\n\nstolz auf плюс Akkusativ. Предлог тут не угадывается, он просто такой.\n\nzufrieden mit плюс Dativ.\n\nЗлиться на кого-то — böse auf с Akkusativ.\n\ngespannt auf — «жду с интересом», всегда про то, что впереди.\n\ntypisch für плюс Akkusativ."
+ },
+ {
+  "key": "n2_adjpraep",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 6,
+  "chars": 174,
+  "text": "Adjektive mit fester Präposition.\n\nIch bin stolz auf dich.\n\nSie ist zufrieden mit der Arbeit.\n\nEr ist böse auf mich.\n\nIch bin gespannt auf den Film.\n\nDas ist typisch für ihn."
+ },
+ {
+  "key": "n3_indirekt",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 6,
+  "chars": 329,
+  "text": "Пять вопросов, где глагол стоит не там.\n\nВ косвенном вопросе глагол уезжает в самый конец.\n\nСначала подлежащее, потом всё остальное, глагол последним.\n\nВторая часть — тоже придаточное, порядок тот же.\n\nБез вопросительного слова ставится ob, и глагол снова в конце.\n\nВ придаточном приставка возвращается к глаголу и не отрывается."
+ },
+ {
+  "key": "n3_indirekt",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 6,
+  "chars": 212,
+  "text": "Indirekte Fragen: das Verb ans Ende.\n\nWeißt du, wo der Bahnhof ist?\n\nIch frage mich, warum er nicht kommt.\n\nKannst du mir sagen, wie spät es ist?\n\nIch weiß nicht, ob sie kommt.\n\nEr hat gefragt, wann wir abfahren."
+ },
+ {
+  "key": "o1_advent",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 7,
+  "chars": 177,
+  "text": "Шесть слов про адвент и рождественский рынок.\n\nадвентский венок.\n\nглинтвейн.\n\nзалог за кружку или бутылку.\n\nрождественское печенье.\n\nпряник.\n\nтихий, располагающий к размышлению."
+ },
+ {
+  "key": "o1_advent",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 13,
+  "chars": 351,
+  "text": "Sechs Wörter für die Adventszeit.\n\nder Adventskranz.\n\nAm Sonntag zünden wir die erste Kerze an.\n\nder Glühwein.\n\nEinen Glühwein mit Schuss, bitte.\n\ndas Pfand.\n\nDas Pfand für die Tasse bekommst du zurück.\n\ndie Plätzchen.\n\nWir backen jedes Jahr Plätzchen.\n\nder Lebkuchen.\n\nLebkuchen gibt es schon ab September.\n\nbesinnlich.\n\nEine besinnliche Adventszeit!"
+ },
+ {
+  "key": "o2_steuer",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 7,
+  "chars": 148,
+  "text": "Шесть слов из немецкого расчётного листка.\n\nдо вычетов.\n\nна руки.\n\nподоходный налог.\n\nналоговый класс.\n\nнеоблагаемый минимум.\n\nналоговая декларация."
+ },
+ {
+  "key": "o2_steuer",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 13,
+  "chars": 374,
+  "text": "Sechs Wörter von der Gehaltsabrechnung.\n\nbrutto.\n\nDas Gehalt ist brutto angegeben.\n\nnetto.\n\nNetto bleibt deutlich weniger.\n\ndie Lohnsteuer.\n\nDie Lohnsteuer zieht der Arbeitgeber ab.\n\ndie Steuerklasse.\n\nNach der Heirat ändert sich die Steuerklasse.\n\nder Freibetrag.\n\nBis zum Freibetrag zahlst du keine Steuer.\n\ndie Steuererklärung.\n\nDie Steuererklärung lohnt sich fast immer."
+ },
+ {
+  "key": "o3_uebergabe",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 7,
+  "chars": 191,
+  "text": "Шесть слов про сдачу квартиры.\n\nпередача квартиры при выезде.\n\nакт приёма-передачи.\n\nпоказания счётчика.\n\nзалог за квартиру.\n\nрасчёт коммунальных за год.\n\nподметённым, без генеральной уборки."
+ },
+ {
+  "key": "o3_uebergabe",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 13,
+  "chars": 417,
+  "text": "Sechs Wörter für die Wohnungsübergabe.\n\ndie Wohnungsübergabe.\n\nDie Übergabe ist am letzten Tag des Monats.\n\ndas Übergabeprotokoll.\n\nOhne Protokoll unterschreibst du nichts.\n\nder Zählerstand.\n\nDen Zählerstand fotografieren nicht vergessen.\n\ndie Kaution.\n\nDie Kaution kommt oft erst nach Monaten zurück.\n\ndie Nebenkostenabrechnung.\n\nDie Abrechnung kommt einmal im Jahr.\n\nbesenrein.\n\nDie Wohnung muss nur besenrein sein."
+ }
+]

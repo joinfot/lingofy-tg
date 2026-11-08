@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 K=$1; cd /home/claude
-export BATCH=${BATCH:-accdata2}
+export BATCH=${BATCH:-accdata3}
 N=$(python3 -c "
 import importlib, os, fmts
 D=importlib.import_module(os.environ['BATCH'])

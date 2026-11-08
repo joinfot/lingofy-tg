@@ -24,8 +24,10 @@ import sys
 import numpy as np
 
 import fmts
-import vdur2
 import ysplit
+
+# какая партия — такие эталонные длительности
+vdur2 = importlib.import_module(os.environ.get("VDUR", "vdur2"))
 
 SRC = sys.argv[1] if len(sys.argv) > 1 else "/mnt/user-data/uploads"
 PAD = 0.07          # местный mp3 чуть длиннее из-за добивки кадра
@@ -46,21 +48,42 @@ if len(files) != len(vdur2.ORDER):
     print(f"файлов {len(files)}, а дорожек {len(vdur2.ORDER)} — не берусь")
     sys.exit(1)
 
+# Сначала каждому файлу ищется дорожка той же длительности. Имена у
+# скачанных файлов бывают то с номерами, то с отметкой времени, а порядок
+# скачивания не обязан совпадать с порядком генерации, — длительность же
+# не врёт. Порядок остаётся запасным ходом: он решает только там, где
+# длительности совпали у нескольких дорожек.
 print("сверяю файлы с эталоном")
-loaded, bad = [], []
-for path, (key, lang, want) in zip(files, vdur2.ORDER):
-    x = ysplit.load(path)
-    got = len(x) / ysplit.SR
-    ok = abs(got - want) <= PAD
-    loaded.append((key, lang, x, got))
-    mark = "ок" if ok else "НЕ СХОДИТСЯ"
-    print(f"  {os.path.basename(path):28s} -> {key}|{lang}  "
+dur = [(p, len(ysplit.load(p)) / ysplit.SR) for p in files]
+left = list(vdur2.ORDER)
+pairs, bad = [], []
+for path, got in dur:
+    hit = [t for t in left if abs(got - t[2]) <= PAD]
+    if len(hit) == 1:
+        pairs.append((path, got, hit[0]))
+        left.remove(hit[0])
+    else:
+        pairs.append((path, got, None))
+
+# неоднозначные и несовпавшие раздаются по порядку из остатка
+rest = iter(left)
+for i, (path, got, t) in enumerate(pairs):
+    if t is None:
+        t = next(rest, None)
+        pairs[i] = (path, got, t)
+        if t is None or abs(got - t[2]) > PAD:
+            bad.append((os.path.basename(path), got, t))
+
+loaded = []
+for path, got, t in pairs:
+    key, lang, want = t
+    loaded.append((key, lang, ysplit.load(path), got))
+    mark = "ок" if abs(got - want) <= PAD else "НЕ СХОДИТСЯ"
+    print(f"  {os.path.basename(path)[:26]:26s} -> {key}|{lang}  "
           f"{got:6.2f} при ожидаемых {want:6.2f}  {mark}")
-    if not ok:
-        bad.append((os.path.basename(path), key, lang, got, want))
 
 if bad:
-    print("\nпорядок файлов не совпал с порядком генерации — ничего не режу.")
+    print("\nнашлись файлы, которым не нашлось дорожки, — ничего не режу.")
     for b in bad:
         print("   ", b)
     sys.exit(1)
