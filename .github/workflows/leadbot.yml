@@ -1,0 +1,29 @@
+name: lead-bot
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  push:
+    branches: [main]
+    paths: ["leadbot.py", ".github/workflows/leadbot.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: lead-bot
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Answer bot messages (PDF lead magnet)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: python3 leadbot.py
+      - name: Save lead_state.json
+        run: |
+          if [ -n "$(git status --porcelain lead_state.json)" ]; then
+            git config user.name "lingofy-bot"
+            git config user.email "bot@users.noreply.github.com"
+            git add lead_state.json
+            git commit -m "lead bot state"
+            for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
+          fi

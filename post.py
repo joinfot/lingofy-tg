@@ -20,14 +20,23 @@ def api(method, payload):
 def send(p):
     t = p["type"]
     if t == "photo":
-        api("sendPhoto", {"chat_id": CHAT, "photo": p["photo"], "caption": p["caption"], "parse_mode": "HTML"})
+        res = api("sendPhoto", {"chat_id": CHAT, "photo": p["photo"], "caption": p["caption"], "parse_mode": "HTML"})
     elif t == "text":
-        api("sendMessage", {"chat_id": CHAT, "text": p["text"], "parse_mode": "HTML"})
+        res = api("sendMessage", {"chat_id": CHAT, "text": p["text"], "parse_mode": "HTML"})
     elif t == "quiz":
-        api("sendPoll", {"chat_id": CHAT, "question": p["question"], "options": p["options"],
-                         "type": "quiz", "correct_option_id": p["correct"], "explanation": p.get("explanation", "")})
+        res = api("sendPoll", {"chat_id": CHAT, "question": p["question"], "options": p["options"],
+                               "type": "quiz", "correct_option_id": p["correct"], "explanation": p.get("explanation", "")})
+    elif t == "document":
+        res = api("sendDocument", {"chat_id": CHAT, "document": p["document"], "caption": p.get("caption", ""),
+                                   "parse_mode": "HTML"})
     else:
         raise ValueError(t)
+    if p.get("pin"):
+        try:
+            api("pinChatMessage", {"chat_id": CHAT, "message_id": res["result"]["message_id"],
+                                   "disable_notification": True})
+        except Exception as e:
+            print("PIN FAILED", p["id"], e)
 
 def main():
     queue = json.load(open("queue.json", encoding="utf-8"))
