@@ -1,9 +1,11 @@
 #!/bin/bash
 set -e
 K=$1; cd /home/claude
-export BATCH=${BATCH:-accdata3}
+export BATCH=${BATCH:-accdata4}
+export FMTS=${FMTS:-fmts2}
 N=$(python3 -c "
-import importlib, os, fmts
+import importlib, os
+fmts=importlib.import_module(os.environ.get('FMTS','fmts'))
 D=importlib.import_module(os.environ['BATCH'])
 c=D.cfg('$K'); ph,sl,T=fmts.build(c); print(len(fmts.frames(ph)))")
 rm -rf "fr_$K"; mkdir -p "fr_$K"

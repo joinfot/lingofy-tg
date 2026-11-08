@@ -9,7 +9,6 @@ import importlib
 import os
 import sys
 
-import fmts
 
 KEY = sys.argv[1]
 START = int(sys.argv[2])
@@ -17,6 +16,7 @@ COUNT = int(sys.argv[3])
 OUT = sys.argv[4]
 
 D = importlib.import_module(os.environ.get("BATCH", "accdata2"))
+fmts = importlib.import_module(os.environ.get("FMTS", "fmts"))
 cfg = D.cfg(KEY)
 phases, slots, T = fmts.build(cfg)
 seq = fmts.frames(phases)

@@ -1,0 +1,242 @@
+[
+ {
+  "key": "p1_scheinanglizismen",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 4,
+  "chars": 105,
+  "text": "«Handy» по-немецки — это...\n\n«Beamer» в Германии — это...\n\n«Oldtimer» — это...\n\n«Public Viewing» — это..."
+ },
+ {
+  "key": "p1_scheinanglizismen",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 4,
+  "chars": 55,
+  "text": "das Handy.\n\nder Beamer.\n\nder Oldtimer.\n\nPublic Viewing."
+ },
+ {
+  "key": "p2_behoerden",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 4,
+  "chars": 128,
+  "text": "Куда идти прописываться?\n\nГде получают налоговый номер?\n\nКто выписывает штраф за парковку?\n\nКуда обращаются за детским пособием?"
+ },
+ {
+  "key": "p2_behoerden",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 4,
+  "chars": 68,
+  "text": "das Bürgeramt.\n\ndas Finanzamt.\n\ndas Ordnungsamt.\n\ndie Familienkasse."
+ },
+ {
+  "key": "p3_marken",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 4,
+  "chars": 87,
+  "text": "Capri-Sun — марка немецкая?\n\nHaribo — немецкая?\n\nNutella — немецкая?\n\nNivea — немецкая?"
+ },
+ {
+  "key": "p3_marken",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 4,
+  "chars": 39,
+  "text": "Capri-Sonne.\n\nHaribo.\n\nNutella.\n\nNivea."
+ },
+ {
+  "key": "q1_tiere",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 8,
+  "chars": 152,
+  "text": "ленивый зверь.\n\nленивец.\n\nпроволочный осёл.\n\nвелосипед — так говорят в шутку.\n\nраскалённая груша.\n\nлампочка.\n\nпечальное сало.\n\nвес, набранный на нервах."
+ },
+ {
+  "key": "q1_tiere",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 4,
+  "chars": 63,
+  "text": "das Faultier.\n\nder Drahtesel.\n\ndie Glühbirne.\n\nder Kummerspeck."
+ },
+ {
+  "key": "q2_unuebersetzbar",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 8,
+  "chars": 245,
+  "text": "лестничная шутка.\n\nостроумный ответ, который пришёл слишком поздно.\n\nидея под шнапс.\n\nзатея, которая кажется гениальной только спьяну.\n\nлицо для пощёчины.\n\nлицо, которое само напрашивается.\n\nсидячее мясо.\n\nусидчивость — умение досидеть до конца."
+ },
+ {
+  "key": "q2_unuebersetzbar",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 4,
+  "chars": 77,
+  "text": "der Treppenwitz.\n\ndie Schnapsidee.\n\ndas Backpfeifengesicht.\n\ndas Sitzfleisch."
+ },
+ {
+  "key": "q3_lang",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 8,
+  "chars": 237,
+  "text": "ограничение скорости.\n\nто, чего на части автобанов нет.\n\nстраховка автомобиля.\n\nавтостраховка — без неё машину не поставить на учёт.\n\nразрешение на пребывание.\n\nвид на жительство.\n\nуспокоение движения.\n\nжилая зона, где машины едут шагом."
+ },
+ {
+  "key": "q3_lang",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 4,
+  "chars": 115,
+  "text": "die Geschwindigkeitsbegrenzung.\n\ndie Kraftfahrzeugversicherung.\n\ndie Aufenthaltserlaubnis.\n\ndie Verkehrsberuhigung."
+ },
+ {
+  "key": "r1_buergeramt",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 6,
+  "chars": 178,
+  "text": "POV: ты первый раз в Bürgeramt.\n\nНомер B 47, окно 3.\n\nПодтверждение от арендодателя с собой?\n\nРаспечатка была бы лучше.\n\nЛадно, сделаю исключение.\n\nПодтверждение придёт по почте."
+ },
+ {
+  "key": "r1_buergeramt",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 5,
+  "chars": 162,
+  "text": "Nummer B 47, Schalter 3.\n\nHaben Sie die Wohnungsgeberbestätigung dabei?\n\nEin Ausdruck wäre besser.\n\nGut, ich mache eine Ausnahme.\n\nDie Bestätigung kommt per Post."
+ },
+ {
+  "key": "r2_aldi",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 6,
+  "chars": 148,
+  "text": "POV: кассир пробивает быстрее, чем ты складываешь.\n\nУ вас без сдачи?\n\nКарта или наличные?\n\nПакет нужен?\n\nСледующий, пожалуйста.\n\nТут так делают все."
+ },
+ {
+  "key": "r2_aldi",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 5,
+  "chars": 110,
+  "text": "Haben Sie es passend?\n\nKarte oder bar?\n\nBrauchen Sie eine Tüte?\n\nDer Nächste, bitte.\n\nDas machen hier alle so."
+ },
+ {
+  "key": "r3_besuch",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 6,
+  "chars": 143,
+  "text": "POV: немец пришёл к тебе в гости.\n\nНадеюсь, я не слишком рано.\n\nТак, мелочь.\n\nКуда мне можно сесть?\n\nПрост! Смотри в глаза.\n\nЯ, пожалуй, пойду."
+ },
+ {
+  "key": "r3_besuch",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 5,
+  "chars": 149,
+  "text": "Ich hoffe, ich bin nicht zu früh.\n\nNur eine Kleinigkeit.\n\nWo darf ich mich hinsetzen?\n\nProst! Schau mir in die Augen.\n\nIch mach mich mal auf den Weg."
+ },
+ {
+  "key": "s1_haus",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 5,
+  "chars": 107,
+  "text": "Закрывайте дверь.\n\nРекламу не бросать.\n\nСтавить запрещено.\n\nТихие часы с 22 до 6.\n\nВход только для жильцов."
+ },
+ {
+  "key": "s1_haus",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 5,
+  "chars": 136,
+  "text": "Bitte Tür schließen.\n\nKeine Werbung einwerfen.\n\nAbstellen verboten.\n\nRuhezeit von zweiundzwanzig bis sechs Uhr.\n\nZutritt nur für Mieter."
+ },
+ {
+  "key": "s2_supermarkt",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 5,
+  "chars": 101,
+  "text": "Только наличные.\n\nПустая тара сюда.\n\nТележку вернуть на место.\n\nГоден как минимум до.\n\nКасса закрыта."
+ },
+ {
+  "key": "s2_supermarkt",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 5,
+  "chars": 100,
+  "text": "Nur Bargeld.\n\nLeergut hier.\n\nBitte Wagen zurückbringen.\n\nMindestens haltbar bis.\n\nKasse geschlossen."
+ },
+ {
+  "key": "s3_bahnhof",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 5,
+  "chars": 94,
+  "text": "Поезд отменён.\n\nНе входить.\n\nОсторожно, край платформы.\n\nПрокомпостировать билет.\n\nВыхода нет."
+ },
+ {
+  "key": "s3_bahnhof",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 5,
+  "chars": 108,
+  "text": "Der Zug fällt aus.\n\nNicht einsteigen.\n\nVorsicht an der Bahnsteigkante.\n\nFahrkarten entwerten.\n\nKein Ausgang."
+ },
+ {
+  "key": "t1_alltag",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 5,
+  "chars": 193,
+  "text": "По воскресеньям магазины закрыты.\n\nМусор разбирают по нескольким бакам.\n\nЗа тару платишь залог и получаешь его назад.\n\nНочью и в воскресенье шуметь нельзя.\n\nВедомства отвечают бумажным письмом."
+ },
+ {
+  "key": "t1_alltag",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 5,
+  "chars": 77,
+  "text": "der Ladenschluss.\n\ndie Mülltrennung.\n\ndas Pfand.\n\ndie Ruhezeit.\n\ndie Behörde."
+ },
+ {
+  "key": "t2_ordnung",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 5,
+  "chars": 154,
+  "text": "На всё нужна запись.\n\nПосле переезда надо прописаться.\n\nНаличные нужны чаще, чем кажется.\n\nВелодорожка — не тротуар.\n\nЗа коммунальные считаются раз в год."
+ },
+ {
+  "key": "t2_ordnung",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 5,
+  "chars": 82,
+  "text": "der Termin.\n\ndie Anmeldung.\n\nnur Bargeld.\n\nder Radweg.\n\ndie Nebenkostenabrechnung."
+ },
+ {
+  "key": "t3_wohnung",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 5,
+  "chars": 172,
+  "text": "Окно открывается двумя способами.\n\nКвартиру часто сдают без кухни.\n\nЧек дают всегда, даже за одну булочку.\n\nВоду пьют прямо из-под крана.\n\nПочти у каждого дома есть подвал."
+ },
+ {
+  "key": "t3_wohnung",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 5,
+  "chars": 75,
+  "text": "kippen.\n\ndie Einbauküche.\n\nder Kassenbon.\n\ndas Leitungswasser.\n\nder Keller."
+ }
+]

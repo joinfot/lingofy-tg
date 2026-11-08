@@ -13,12 +13,12 @@ import sys
 import numpy as np
 from scipy.io import wavfile
 
-import fmts
 import mus
 
 SR = mus.SR
 KEY = sys.argv[1]
 D = importlib.import_module(os.environ.get("BATCH", "accdata2"))
+fmts = importlib.import_module(os.environ.get("FMTS", "fmts"))
 cfg = D.cfg(KEY)
 phases, slots, T = fmts.build(cfg)
 

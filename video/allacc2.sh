@@ -1,7 +1,8 @@
 #!/bin/bash
 # Собирает всю партию. По три ролика разом — больше упирается в память.
 cd /home/claude
-export BATCH=${BATCH:-accdata3}
+export BATCH=${BATCH:-accdata4}
+export FMTS=${FMTS:-fmts2}
 KEYS=$(python3 -c "
 import importlib,os
 D=importlib.import_module(os.environ['BATCH'])
