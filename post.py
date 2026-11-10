@@ -5,7 +5,19 @@ from datetime import datetime, timezone, timedelta
 
 TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 CHAT = os.environ.get("CHAT_ID", "@lingofydeutsch")
-MAX_LATE = timedelta(hours=6)  # не публиковать посты, опоздавшие больше чем на 6 ч
+# GitHub запускает крон не каждые 15 минут, как заявлено в расписании, а
+# фактически раз в 6-8 часов. С окном в 6 часов посты, попавшие между
+# запусками, молча терялись: 9 ноября так пропали утренний и вечерний.
+# Поэтому окно сделано суточным, но публикация разрешена только в живые
+# часы — иначе опоздавший вечерний пост ушёл бы в три ночи.
+MAX_LATE = timedelta(hours=24)
+HOURS = (7, 22)        # по Берлину: раньше и позже не публикуем
+TZ = timezone(timedelta(hours=1))
+
+
+def awake(now):
+    h = now.astimezone(TZ).hour
+    return HOURS[0] <= h < HOURS[1]
 
 def api(method, payload):
     data = json.dumps(payload).encode()
@@ -48,7 +60,13 @@ def main():
         if p["id"] in posted:
             continue
         at = datetime.fromisoformat(p["at"])
-        due = p["id"] in force or (at <= now and (p.get("catch_up") or now - at <= MAX_LATE))
+        late = now - at
+        due = p["id"] in force or (
+            at <= now
+            and (p.get("catch_up") or late <= MAX_LATE)
+            # вовремя публикуем всегда, опоздавший ждёт живого часа
+            and (late <= timedelta(minutes=30) or awake(now))
+        )
         if not due:
             continue
         try:
@@ -59,4 +77,7 @@ def main():
     if changed:
         json.dump(posted, open("posted.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
-main()
+
+# без этой проверки импорт файла сразу начинал рассылать посты
+if __name__ == "__main__":
+    main()
