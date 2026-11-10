@@ -77,31 +77,53 @@ for i, (path, x, got) in enumerate(dur):
         amb.append(i)
 
 # Там, где длительности совпали, решает второй признак: как внутренние
-# паузы ложатся на текст. Перебираются все раскладки неоднозначной группы,
-# берётся та, у которой суммарное совпадение с текстом выше. Перепутанный
-# вариант проигрывает заметно — у дорожек разный рисунок длин фраз.
+# паузы ложатся на текст. Перепутанный вариант проигрывает заметно — у
+# дорожек разный рисунок длин фраз.
+#
+# Перебирать сразу все неоднозначные файлы нельзя: в пятой партии таких
+# пар шесть, это двенадцать файлов и 479 миллионов раскладок. Но пары
+# между собой не пересекаются — файл на 6.08 никогда не спутаешь с файлом
+# на 10.16. Поэтому неоднозначные бьются на группы с одинаковым набором
+# кандидатов, и каждая группа перебирается отдельно: внутри пары всего
+# два варианта.
 if amb:
     import itertools
-    cand = [t for t in left]
-    best, barg = -1e9, None
-    for perm in itertools.permutations(cand, len(amb)):
-        if any(abs(dur[i][2] - t[2]) > PAD for i, t in zip(amb, perm)):
-            continue
-        tot = 0.0
-        for i, t in zip(amb, perm):
-            seq = texts[f"{t[0]}|{t[1]}"]
-            _, cuts, sc = ysplit.best_of(dur[i][1], seq)
-            tot += sc
-        if tot > best:
-            best, barg = tot, perm
-    if barg is None:
-        print("неоднозначные дорожки не разложились — ничего не режу.")
-        sys.exit(1)
-    print(f"  неоднозначных по длительности: {len(amb)}, "
-          f"разложены по рисунку пауз (сумма совпадений {best:.2f})")
-    for i, t in zip(amb, barg):
-        pairs[i][3] = t
-        left.remove(t)
+
+    groups = {}
+    for i in amb:
+        hit = tuple(sorted((t for t in left if abs(dur[i][2] - t[2]) <= PAD),
+                           key=lambda t: (t[0], t[1])))
+        groups.setdefault(hit, []).append(i)
+
+    print(f"  неоднозначных по длительности: {len(amb)} "
+          f"в {len(groups)} группах, развожу по рисунку пауз")
+
+    for hit, idx in groups.items():
+        if not hit:
+            print("    группе не нашлось кандидатов — ничего не режу.")
+            sys.exit(1)
+        if len(hit) > 7:
+            print(f"    группа из {len(hit)} дорожек — слишком много "
+                  f"для перебора, ничего не режу.")
+            sys.exit(1)
+        best, barg = -1e9, None
+        for perm in itertools.permutations(hit, len(idx)):
+            tot = 0.0
+            for i, t in zip(idx, perm):
+                seq = texts[f"{t[0]}|{t[1]}"]
+                _, cuts, sc = ysplit.best_of(dur[i][1], seq)
+                tot += sc
+            if tot > best:
+                best, barg = tot, perm
+        if barg is None:
+            print("    группа не разложилась — ничего не режу.")
+            sys.exit(1)
+        names = ", ".join(f"{t[0]}|{t[1]}" for t in barg)
+        print(f"    {dur[idx[0]][2]:5.2f}с: {names}  "
+              f"(сумма совпадений {best:.2f})")
+        for i, t in zip(idx, barg):
+            pairs[i][3] = t
+            left.remove(t)
 
 bad = [p for p in pairs if p[3] is None or abs(p[2] - p[3][2]) > PAD]
 loaded = []

@@ -1,0 +1,242 @@
+[
+ {
+  "key": "u1_laeden",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 4,
+  "chars": 62,
+  "text": "Что продают в dm?\n\nА во Fressnapf?\n\nЧто в Obi?\n\nА в Deichmann?"
+ },
+ {
+  "key": "u1_laeden",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 4,
+  "chars": 69,
+  "text": "der Drogeriemarkt.\n\nder Fressnapf.\n\nder Baumarkt.\n\ndas Schuhgeschäft."
+ },
+ {
+  "key": "u2_feiertage",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 4,
+  "chars": 125,
+  "text": "Что за праздник 3 октября?\n\nЧто происходит 11 ноября вечером?\n\nЧто делают в ночь на 6 декабря?\n\nBuß- und Bettag — выходной..."
+ },
+ {
+  "key": "u2_feiertage",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 4,
+  "chars": 87,
+  "text": "der Tag der Deutschen Einheit.\n\nder Martinstag.\n\nder Nikolaustag.\n\nder Buß- und Bettag."
+ },
+ {
+  "key": "u3_essen",
+  "lang": "ru",
+  "voice": "TeHM1srC510U976rvUis",
+  "n": 4,
+  "chars": 84,
+  "text": "Что такое Leberkäse?\n\nА Arme Ritter?\n\nFalscher Hase — это...\n\nKalter Hund — что это?"
+ },
+ {
+  "key": "u3_essen",
+  "lang": "de",
+  "voice": "uvysWDLbKpA4XvpD3GI6",
+  "n": 4,
+  "chars": 64,
+  "text": "der Leberkäse.\n\nArme Ritter.\n\nder falsche Hase.\n\nder kalte Hund."
+ },
+ {
+  "key": "v1_vogel",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 8,
+  "chars": 119,
+  "text": "заяц страха.\n\nтрус.\n\nсмоляная птица.\n\nневезучий человек.\n\nптица веселья.\n\nшутник, балагур.\n\nшнапсовый дрозд.\n\nвыпивоха."
+ },
+ {
+  "key": "v1_vogel",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 4,
+  "chars": 67,
+  "text": "der Angsthase.\n\nder Pechvogel.\n\nder Spaßvogel.\n\ndie Schnapsdrossel."
+ },
+ {
+  "key": "v2_gefuehle",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 8,
+  "chars": 226,
+  "text": "мировая боль.\n\nтоска от того, что мир устроен не так.\n\nпредрадость.\n\nрадость от ожидания — часто сильнее самого события.\n\nпринуждение к ходу.\n\nположение, где любой шаг делает хуже.\n\nукрытость.\n\nуют и защищённость одним словом."
+ },
+ {
+  "key": "v2_gefuehle",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 4,
+  "chars": 66,
+  "text": "der Weltschmerz.\n\ndie Vorfreude.\n\nder Zugzwang.\n\ndie Geborgenheit."
+ },
+ {
+  "key": "v3_alltag",
+  "lang": "ru",
+  "voice": "xcVbjGhhLIoKi3va6mAe",
+  "n": 8,
+  "chars": 114,
+  "text": "дальновидец.\n\nтелевизор.\n\nручные бубенцы.\n\nнаручники.\n\nбросатель света.\n\nфара или прожектор.\n\nзубное мясо.\n\nдесна."
+ },
+ {
+  "key": "v3_alltag",
+  "lang": "de",
+  "voice": "yamcvgNdKmgh0Ron7Bsz",
+  "n": 4,
+  "chars": 70,
+  "text": "der Fernseher.\n\ndie Handschellen.\n\nder Scheinwerfer.\n\ndas Zahnfleisch."
+ },
+ {
+  "key": "w1_brief",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 6,
+  "chars": 162,
+  "text": "POV: пришло письмо из Behörde.\n\nУважаемые дамы и господа,\n\nНастоящим сообщаем вам:\n\nПросьба перевести до конца месяца.\n\nОтвет не требуется.\n\nСохраните это письмо."
+ },
+ {
+  "key": "w1_brief",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 5,
+  "chars": 183,
+  "text": "Sehr geehrte Damen und Herren,\n\nHiermit teilen wir Ihnen mit:\n\nBitte überweisen Sie bis zum Monatsende.\n\nEine Antwort ist nicht erforderlich.\n\nBitte bewahren Sie dieses Schreiben auf."
+ },
+ {
+  "key": "w2_wohnungssuche",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 6,
+  "chars": 185,
+  "text": "POV: ищешь квартиру в Мюнхене.\n\nКвартира, к сожалению, уже сдана.\n\nПриглашаем вас на просмотр.\n\nВстаньте, пожалуйста, в конец.\n\nДокументы с собой?\n\nМы хотели бы предложить вам квартиру."
+ },
+ {
+  "key": "w2_wohnungssuche",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 5,
+  "chars": 189,
+  "text": "Die Wohnung ist leider schon vergeben.\n\nWir laden Sie zur Besichtigung ein.\n\nBitte stellen Sie sich hinten an.\n\nHaben Sie die Unterlagen dabei?\n\nWir würden Ihnen die Wohnung gerne anbieten."
+ },
+ {
+  "key": "w3_nachbar",
+  "lang": "ru",
+  "voice": "L6qAUOfLV8LhJlH6aFfN",
+  "n": 6,
+  "chars": 178,
+  "text": "POV: сосед позвонил в дверь.\n\nИзвините за беспокойство.\n\nУ вас, к сожалению, шумновато.\n\nСтиральная машина после двадцати двух.\n\nНе проблема, просто на заметку.\n\nХорошего вечера!"
+ },
+ {
+  "key": "w3_nachbar",
+  "lang": "de",
+  "voice": "lDqWFcxBxWhu05tao5Ls",
+  "n": 5,
+  "chars": 154,
+  "text": "Entschuldigen Sie die Störung.\n\nEs ist leider etwas laut.\n\nDie Waschmaschine nach zweiundzwanzig Uhr.\n\nKein Problem, nur als Hinweis.\n\nSchönen Abend noch!"
+ },
+ {
+  "key": "x1_strasse",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 5,
+  "chars": 109,
+  "text": "Проезд только по делу.\n\nВход на свой страх и риск.\n\nЧастная территория.\n\nСнег здесь не убирают.\n\nПрохода нет."
+ },
+ {
+  "key": "x1_strasse",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 5,
+  "chars": 110,
+  "text": "Anlieger frei.\n\nBetreten auf eigene Gefahr.\n\nPrivatgrundstück.\n\nWinterdienst eingestellt.\n\nDurchgang verboten."
+ },
+ {
+  "key": "x2_arzt",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 5,
+  "chars": 85,
+  "text": "Позвоните в звонок.\n\nДежурная аптека.\n\nЧасы приёма.\n\nБез рецепта.\n\nПриготовьте карту."
+ },
+ {
+  "key": "x2_arzt",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 5,
+  "chars": 90,
+  "text": "Bitte klingeln.\n\nder Notdienst.\n\ndie Sprechstunde.\n\nrezeptfrei.\n\nBitte Karte bereithalten."
+ },
+ {
+  "key": "x3_parken",
+  "lang": "ru",
+  "voice": "k9CgOpaXuoHsdMdv6om1",
+  "n": 5,
+  "chars": 151,
+  "text": "Парковка только с диском.\n\nТолько для жильцов квартала.\n\nКратковременная парковка.\n\nНезаконно припаркованные машины эвакуируют.\n\nНе загораживать выезд."
+ },
+ {
+  "key": "x3_parken",
+  "lang": "de",
+  "voice": "xlbJQnFFGB01bv7HK5CZ",
+  "n": 5,
+  "chars": 126,
+  "text": "Parken nur mit Parkscheibe.\n\ndas Anwohnerparken.\n\ndas Kurzzeitparken.\n\nFalschparker werden abgeschleppt.\n\nAusfahrt freihalten."
+ },
+ {
+  "key": "y1_november",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 5,
+  "chars": 158,
+  "text": "Темнеет уже в пятом часу.\n\nЗимние шины — не по дате, а по погоде.\n\nОтопление включает дом, а не ты.\n\nПроветривают настежь и коротко.\n\nВ ноябре есть тихие дни."
+ },
+ {
+  "key": "y1_november",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 5,
+  "chars": 98,
+  "text": "die Dunkelheit.\n\ndie Winterreifenpflicht.\n\ndie Heizperiode.\n\ndas Stoßlüften.\n\nder stille Feiertag."
+ },
+ {
+  "key": "y2_arbeit",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 5,
+  "chars": 147,
+  "text": "Отпуск гарантирован законом.\n\nПереработки не сгорают.\n\nУйти одним днём нельзя.\n\nСправка нужна не с первого дня.\n\nВ испытательный срок сроки короче."
+ },
+ {
+  "key": "y2_arbeit",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 5,
+  "chars": 100,
+  "text": "der Urlaubsanspruch.\n\ndas Arbeitszeitkonto.\n\ndie Kündigungsfrist.\n\ndie Krankmeldung.\n\ndie Probezeit."
+ },
+ {
+  "key": "y3_strasse",
+  "lang": "ru",
+  "voice": "9QNFThQvNzOXfEbWsM74",
+  "n": 5,
+  "chars": 171,
+  "text": "Ограничения скорости есть не везде.\n\nЛевый ряд — только для обгона.\n\nПеред зелёным загорается жёлтый.\n\nПешеход на зебре идёт первым.\n\nНарушения на велосипеде тоже считают."
+ },
+ {
+  "key": "y3_strasse",
+  "lang": "de",
+  "voice": "XJWHuOvSoCriK1Q4wPAN",
+  "n": 5,
+  "chars": 106,
+  "text": "die Richtgeschwindigkeit.\n\ndas Rechtsfahrgebot.\n\ndie Ampel.\n\nder Zebrastreifen.\n\ndas Fahreignungsregister."
+ }
+]
