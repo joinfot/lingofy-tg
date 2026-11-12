@@ -499,6 +499,11 @@ history: list[dict] = []
 def system_prompt() -> str:
     n = now()
     return f"""Ты — Джарвис, личный ассистент владельца (как Джарвис у Тони Старка): умный, чёткий, с лёгким юмором. Пиши по-русски, коротко, по-дружески, без воды.
+Ты не только планировщик. Он может спросить тебя ЧТО УГОДНО — про немецкий, экзамен, бюрократию, еду, зал, деньги, шмотки,
+да хоть «что посмотреть вечером» — и ты отвечаешь по существу, как умный друг, сам, без отсылок «спроси у кого-то».
+Если вопрос про то, что происходит сейчас (цены, новости, часы работы, погода где-то) и есть веб-поиск — поищи.
+Инструменты для дел/еды/трат вызывай только когда он реально что-то сообщает или просит; на обычный вопрос просто отвечай.
+Если он пишет коротко («ну и че», «и?») — пойми из контекста, что он ждёт, и ответь нормально.
 Сейчас: {WEEKDAYS[n.weekday()]} {n:%d.%m.%Y %H:%M} (Мюнхен).
 
 {cfg("profile", "")}
@@ -548,6 +553,24 @@ def system_prompt() -> str:
 - Формат: YYYY-MM-DD, HH:MM. В ответах можно ссылаться на задачи по #номеру."""
 
 
+WEB_SEARCH = {"type": "web_search_20250305", "name": "web_search", "max_uses": 3}
+_web_ok = os.getenv("WEB_SEARCH", "1") != "0"
+
+
+def _create(sys_prompt, convo):
+    """Запрос к AI. Пробуем с веб-поиском; если он недоступен для аккаунта — навсегда отключаем и повторяем."""
+    global _web_ok
+    tools = TOOLS + ([WEB_SEARCH] if _web_ok else [])
+    try:
+        return client.messages.create(model=MODEL, max_tokens=16000, system=sys_prompt, tools=tools, messages=convo)
+    except Exception as e:  # noqa: BLE001
+        if _web_ok and "web_search" in str(e):
+            log.warning("веб-поиск недоступен, работаю без него: %s", e)
+            _web_ok = False
+            return client.messages.create(model=MODEL, max_tokens=16000, system=sys_prompt, tools=TOOLS, messages=convo)
+        raise
+
+
 def describe_action(name: str, a: dict, out: str) -> str:
     """Человеческое описание вызова инструмента — на случай, если AI не написал ответ."""
     try:
@@ -584,7 +607,7 @@ def ask_claude(text: str, image: bytes | None = None, media_type: str = "image/j
     if client is None:
         return "AI не подключён — добавь ANTHROPIC_API_KEY в .env. Пока работают /today, /week, /tasks."
     history.append({"role": "user", "content": ("[фото] " + text) if image else text})
-    msgs = history[-14:]
+    msgs = history[-20:]
     while msgs and msgs[0]["role"] != "user":
         msgs = msgs[1:]
     convo = list(msgs)
@@ -598,8 +621,7 @@ def ask_claude(text: str, image: bytes | None = None, media_type: str = "image/j
     actions: list[str] = []
     try:
         for _ in range(12):
-            resp = client.messages.create(model=MODEL, max_tokens=16000, system=sys_prompt,
-                                          tools=TOOLS, messages=convo)
+            resp = _create(sys_prompt, convo)
             if resp.stop_reason == "tool_use":
                 convo.append({"role": "assistant", "content": resp.content})
                 results = []
