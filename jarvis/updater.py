@@ -8,8 +8,9 @@ import io
 import json
 import logging
 import os
-import urllib.request
 import zipfile
+
+import httpx  # тот же HTTP-клиент, что у Telegram: свои сертификаты (certifi), работает и на Windows
 
 log = logging.getLogger("updater")
 
@@ -32,9 +33,9 @@ def _get(url: str) -> bytes:
     headers = {"Accept": "application/vnd.github+json", "User-Agent": "jarvis-updater"}
     if TOKEN:
         headers["Authorization"] = f"Bearer {TOKEN}"
-    req = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return r.read()
+    r = httpx.get(url, headers=headers, timeout=60, follow_redirects=True)
+    r.raise_for_status()
+    return r.content
 
 
 def local_version() -> str:

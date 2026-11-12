@@ -3,7 +3,8 @@ import json
 import logging
 import os
 import time
-import urllib.request
+
+import httpx
 
 log = logging.getLogger("fx")
 _cache = {"t": 0.0, "uah_per_eur": None}
@@ -14,9 +15,9 @@ def uah_per_eur() -> float:
     if _cache["uah_per_eur"] and time.time() - _cache["t"] < 6 * 3600:
         return _cache["uah_per_eur"]
     try:
-        req = urllib.request.Request("https://api.monobank.ua/bank/currency", headers={"User-Agent": "jarvis"})
-        with urllib.request.urlopen(req, timeout=15) as r:
-            data = json.load(r)
+        r = httpx.get("https://api.monobank.ua/bank/currency", headers={"User-Agent": "jarvis"}, timeout=15)
+        r.raise_for_status()
+        data = r.json()
         row = next(x for x in data if x.get("currencyCodeA") == 978 and x.get("currencyCodeB") == 980)
         rate = row.get("rateSell") or row.get("rateCross")
         _cache.update(t=time.time(), uah_per_eur=float(rate))
