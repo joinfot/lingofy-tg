@@ -106,6 +106,32 @@ def load_extras():
                 continue
             con.executemany("INSERT INTO expenses(date,amount,category,note) VALUES(?,?,?,?)", conv)
             con.execute("INSERT INTO meta VALUES(?, '1')", (key,))
+        if not con.execute("SELECT 1 FROM meta WHERE key='fix_2026_11_12'").fetchone():
+            # Сообщение от 12.11 21:23 потерялось (AI ответил пустым «Готово.») — применяем то, что он просил.
+            for pat in ("Мб съездить", "Нормально поесть", "Посылки (если есть)"):
+                con.execute("DELETE FROM tasks WHERE done=0 AND title LIKE ?", (f"%{pat}%",))
+            for pat in ("Склад: вернуться", "Выставить шмотки", "Чекнуть шмотки", "Купить продукты"):
+                con.execute("UPDATE tasks SET date='2026-11-13', time=NULL WHERE done=0 AND date<'2026-11-13' "
+                            "AND title LIKE ?", (f"%{pat}%",))
+            con.execute("UPDATE tasks SET date='2026-11-13' WHERE done=0 AND title LIKE '📚 Экзамен%' "
+                        "AND date IN ('2026-11-10','2026-11-11')")
+            if not con.execute("SELECT 1 FROM tasks WHERE date='2026-11-13' AND title LIKE '%Schulung%'").fetchone():
+                con.execute("INSERT INTO tasks(title,date,time,created) VALUES('🎓 Schulung','2026-11-13','10:30',?)",
+                            (dt.datetime.now(TZ).isoformat(),))
+            for gd in ("2026-11-09", "2026-11-12"):
+                con.execute("INSERT OR IGNORE INTO gym VALUES(?)", (gd,))
+            con.execute("UPDATE tasks SET done=1 WHERE date='2026-11-12' AND title LIKE '%Зал%'")
+            if not con.execute("SELECT 1 FROM food WHERE date='2026-11-12'").fetchone():
+                con.executemany("INSERT INTO food(date,name,kcal,protein) VALUES('2026-11-12',?,?,?)",
+                                [("Bockwurst (перед работой)", 300, 12), ("Döner (на работе)", 700, 35),
+                                 ("пицца (после работы)", 900, 35)])
+            for pat in ("Поставить бота", "Встретить Еву", "Проводить родителей", "Зал (по возможности)"):
+                con.execute("UPDATE tasks SET done=1 WHERE done=0 AND date<'2026-11-12' AND title LIKE ?", (f"%{pat}%",))
+            con.execute("UPDATE tasks SET date='2026-11-12' WHERE done=0 AND date<'2026-11-12' AND title LIKE '%Lingofy%'")
+            if not con.execute("SELECT 1 FROM tasks WHERE date='2026-11-12' AND title LIKE '%Vinted%'").fetchone():
+                con.execute("INSERT INTO tasks(title,date,created) VALUES('🔄 Перезалить вещи на Vinted','2026-11-12',?)",
+                            (dt.datetime.now(TZ).isoformat(),))
+            con.execute("INSERT INTO meta VALUES('fix_2026_11_12','1')")
         if not con.execute("SELECT 1 FROM meta WHERE key='exam_seeded'").fetchone() and EXAM_PLAN:
             # общие «Подготовка к экзамену» заменяем конкретными темами
             con.execute("DELETE FROM tasks WHERE done=0 AND title LIKE '%Подготовка к экзамену%'")
