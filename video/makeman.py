@@ -99,7 +99,7 @@ if __name__ == "__main__":
     json.dump(man, open(out, "w"), ensure_ascii=False, indent=1)
     # латиница в русской дорожке — последний шанс её заметить
     left = sorted({w for k, t in man.items() if k.endswith("|ru")
-                   for w in re.findall(r"[A-Za-zÄÖÜäöüß]{3,}", t)})
+                   for w in re.findall(r"[A-Za-zÄÖÜäöüß]{2,}", t)})
     print(f"дорожек {len(man)}, знаков {sum(len(x) for x in man.values())}")
     if left:
         print("латиницей в русской озвучке осталось:", ", ".join(left))

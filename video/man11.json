@@ -5,8 +5,8 @@
  "z2_nachbarn|de": "die Begrüßung.\n\ndie Nachbarschaft.\n\nder Putzplan.\n\ndie Nachtruhe.",
  "z3_feiern|ru": "Дружбу заводят через клубы.\n\nНа день рождения угощает именинник.\n\nПоздравлять заранее нельзя.\n\nПодарки открывают потом, наедине.",
  "z3_feiern|de": "das Ehrenamt.\n\nder Geburtstag.\n\ndas Vorfeiern.\n\ndas Auspacken.",
- "aa1_charakter|ru": "Ушастое кресло.\n\nКресло с высокими боками.\n\nРастрата времени.\n\nПустая трата времени.\n\nУмно испражняющийся.\n\nУмник, который лезет поправлять.\n\nУсталость от жизни.\n\nБезрассудная смелость, в шутку.",
- "aa1_charakter|de": "der Ohrensessel.\n\ndie Zeitverschwendung.\n\nder Klugscheißer.\n\ndie Lebensmüdigkeit.",
+ "aa1_charakter|ru": "Ушастое кресло.\n\nКресло с высокими боками.\n\nРастрата времени.\n\nПустая трата времени.\n\nВоздушный замок.\n\nНесбыточная мечта.\n\nПаника закрывающихся ворот.\n\nСтрах не успеть в жизни.",
+ "aa1_charakter|de": "der Ohrensessel.\n\ndie Zeitverschwendung.\n\ndas Luftschloss.\n\ndie Torschlusspanik.",
  "aa2_kennen|ru": "Артикль перед именем звучит тут по-домашнему, это не ошибка.\n\nПереход предлагает старший или хозяин. Отказаться можно.\n\nКороткое говорят своим, полное — на работе.",
  "aa2_kennen|de": "Darf ich mich vorstellen?\n\nIch bin der Oleg.\n\nWollen wir uns duzen?\n\nSag einfach du.\n\nIch verabschiede mich.\n\nIch geh dann mal.",
  "aa3_einladen|ru": "Коротко работает, если вы уже знакомы.\n\nОба варианта верны. Второе просто быстрее.\n\nВторое звучит как извинение, а не отказ.",
@@ -28,5 +28,5 @@
  "dd2_verein|ru": "Клуб заменяет кружок и зал.\n\nВзносы небольшие.\n\nРаботают там добровольцы.\n\nСначала приходят посмотреть.\n\nЭто и есть местная тусовка.",
  "dd2_verein|de": "der Sportverein.\n\nder Mitgliedsbeitrag.\n\nder Ehrenamtliche.\n\ndie Schnupperstunde.\n\nder Vereinsabend.",
  "dd3_wochenende|ru": "Выходные начинаются в пятницу.\n\nВоскресенье для прогулки.\n\nСтолик занимают заранее.\n\nОтпуск планируют задолго.\n\nОтдых уважают.",
- "dd3_wochenende|de": "der kurze Freitag.\n\nder Spaziergang.\n\nder Tisch reservieren.\n\ndie Urlaubszeit.\n\ndie Erholung."
+ "dd3_wochenende|de": "der kurze Freitag.\n\nder Spaziergang.\n\neinen Tisch reservieren.\n\ndie Urlaubszeit.\n\ndie Erholung."
 }
