@@ -8,7 +8,7 @@ import sqlite3
 from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup, Update
 from telegram.constants import ChatAction
 from telegram.ext import (Application, CallbackQueryHandler, CommandHandler,
                           ContextTypes, MessageHandler, filters)
@@ -407,6 +407,12 @@ TOOLS = [
      "input_schema": {"type": "object", "properties": {
          "name": {"type": "string"}, "kcal": {"type": "number"}, "protein": {"type": "number", "description": "граммы белка"},
          "date": {"type": "string"}}, "required": ["name", "kcal", "protein"]}},
+    {"name": "list_records", "description": "Записи еды и трат за день С ID — нужно перед удалением/исправлением.",
+     "input_schema": {"type": "object", "properties": {"date": {"type": "string"}}, "required": ["date"]}},
+    {"name": "delete_food", "description": "Удалить запись еды по id (дубль, ошибка).",
+     "input_schema": {"type": "object", "properties": {"id": {"type": "integer"}}, "required": ["id"]}},
+    {"name": "delete_expense", "description": "Удалить трату по id (дубль, ошибка).",
+     "input_schema": {"type": "object", "properties": {"id": {"type": "integer"}}, "required": ["id"]}},
     {"name": "food_report", "description": "Ккал и белок за сегодня/последние дни.",
      "input_schema": {"type": "object", "properties": {"days": {"type": "integer"}}, "required": ["days"]}},
     {"name": "item_save", "description": "Завести/обновить вещь для перепродажи (после фото). Без code — выдам новый.",
@@ -463,6 +469,20 @@ def run_tool(name: str, a: dict) -> str:
         if name == "log_gym":
             con.execute("INSERT OR IGNORE INTO gym VALUES(?)", (a["date"],))
             return "ок"
+    if name == "list_records":
+        with db() as con:
+            f = con.execute("SELECT id,name,kcal,protein FROM food WHERE date=? ORDER BY id", (a["date"],)).fetchall()
+            e = con.execute("SELECT id,amount,category,note FROM expenses WHERE date=? ORDER BY id", (a["date"],)).fetchall()
+        return ("ЕДА:\n" + "\n".join(f"id {r['id']}: {r['name']} {r['kcal']:.0f} ккал {r['protein']:.0f} г" for r in f) +
+                "\nТРАТЫ:\n" + "\n".join(f"id {r['id']}: {r['amount']:.2f} € {r['note'] or r['category']}" for r in e))
+    if name == "delete_food":
+        with db() as con:
+            n = con.execute("DELETE FROM food WHERE id=?", (a["id"],)).rowcount
+        return ("удалено. " + food_line(today())) if n else "нет такой записи"
+    if name == "delete_expense":
+        with db() as con:
+            n = con.execute("DELETE FROM expenses WHERE id=?", (a["id"],)).rowcount
+        return f"удалено. Сегодня потрачено: {spent_on(today()):.2f} €" if n else "нет такой записи"
     if name == "log_food":
         with db() as con:
             con.execute("INSERT INTO food(date,name,kcal,protein) VALUES(?,?,?,?)",
@@ -538,6 +558,8 @@ def system_prompt() -> str:
 (примерная честная оценка) и коротко скажи, сколько белка осталось и что можно доесть.
 Если он пишет еду С ЦЕНОЙ («кебаб 8€», «Lidl 12,50 — курица, рис») — вызови И log_food, И add_expense.
 Если в одном сообщении несколько вещей — по вызову на каждую. Если не сказал, когда — значит сегодня; «вчера» — вчерашняя дата.
+Внизу у него есть кнопки (Сегодня, Завтра, Еда, Траты, Был в зале, Когда выходить, Экзамен, Неделя) — они работают сами, без тебя.
+Ошибки и дубли в еде/тратах исправляй сам: list_records → delete_food/delete_expense. Перед записью еды проверь list_records, чтобы не задублировать.
 ВСЕГДА заканчивай ответ текстом для него — никогда не отвечай пустым сообщением. После записи еды/трат отвечай коротко в формате:
 ✅ записал: …
 🍽 сегодня: N ккал, белок N г (осталось N г)
@@ -741,7 +763,7 @@ async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "В рабочие и школьные дни сам напомню, когда собираться и когда выходить, с учётом задержек MVG.\n\n"
         f"Каждое утро — дата, погода, дорога и дела на день (в {MORNING} или раньше, если рано выходить). Вечером в {EVENING} — итог.\n"
         "🍽💸 Пиши, что съел и сколько потратил: «кебаб 8 €», «вчера Lidl 12,50 — курица, рис». Я считаю калории, белок и деньги.\n\n"
-        "Команды: /day (сегодня: еда и траты) /food /money /today /week /exam /report /route")
+        "Кнопки внизу — самое нужное. Или просто спрашивай.", reply_markup=MAIN_KB)
 
 
 async def cmd_today(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -808,7 +830,61 @@ async def on_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await send_long(context.bot, update.effective_chat.id, answer)
 
 
+BTN = {
+    "📅 Сегодня": "today", "🗓 Завтра": "tomorrow",
+    "🍽 Еда": "food", "💸 Траты": "money",
+    "🏋️ Был в зале": "gym", "🚋 Когда выходить": "route",
+    "📚 Экзамен": "exam", "📊 Неделя": "report",
+}
+MAIN_KB = ReplyKeyboardMarkup(
+    [[KeyboardButton("📅 Сегодня"), KeyboardButton("🗓 Завтра")],
+     [KeyboardButton("🍽 Еда"), KeyboardButton("💸 Траты")],
+     [KeyboardButton("🏋️ Был в зале"), KeyboardButton("🚋 Когда выходить")],
+     [KeyboardButton("📚 Экзамен"), KeyboardButton("📊 Неделя")]],
+    resize_keyboard=True, is_persistent=True, input_field_placeholder="Спроси что угодно или нажми кнопку")
+
+
+async def on_button_text(update: Update, context: ContextTypes.DEFAULT_TYPE, action: str):
+    chat = update.effective_chat.id
+    d = today()
+    if action == "today":
+        text = overview(d, 1) + "\n\n" + quick_status()
+        await send_long(context.bot, chat, text, day_keyboard(d, True))
+    elif action == "tomorrow":
+        t = d + dt.timedelta(days=1)
+        text = overview(t, 1)
+        p = await asyncio.to_thread(commute_plan, t)
+        if p:
+            text += "\n\n" + transit.fmt(p, TZ, header=False)
+        try:
+            w = await asyncio.to_thread(weather.summary, t)
+            e, desc = weather._code(w["day_code"])
+            text += f"\n\n{e} {w['tmin']:.0f}…{w['tmax']:.0f}°, {desc}" + (" ☂️" if w["rain_hours"] else "")
+        except Exception:  # noqa: BLE001
+            pass
+        await send_long(context.bot, chat, text)
+    elif action == "food":
+        await cmd_food(update, context)
+    elif action == "money":
+        await cmd_money(update, context)
+    elif action == "gym":
+        with db() as con:
+            con.execute("INSERT OR IGNORE INTO gym VALUES(?)", (d.isoformat(),))
+            con.execute("UPDATE tasks SET done=1 WHERE done=0 AND date=? AND title LIKE '%Зал%'", (d.isoformat(),))
+        await update.message.reply_text(f"💪 Зал засчитан! На этой неделе: {gym_week(d)}/3", reply_markup=MAIN_KB)
+    elif action == "route":
+        await cmd_route(update, context)
+    elif action == "exam":
+        await cmd_exam(update, context)
+    elif action == "report":
+        await cmd_report(update, context)
+
+
 async def on_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    action = BTN.get((update.message.text or "").strip())
+    if action:
+        await on_button_text(update, context, action)
+        return
     await context.bot.send_chat_action(update.effective_chat.id, ChatAction.TYPING)
     answer = await asyncio.to_thread(ask_claude, update.message.text)
     await send_long(context.bot, update.effective_chat.id, answer)
@@ -1052,7 +1128,7 @@ async def job_hello(context: ContextTypes.DEFAULT_TYPE):
     ai = "🧠 AI: подключён" if client else "🧠 AI: нет ключа — понимаю только команды (/add, /today…)"
     t = await asyncio.to_thread(brief_time, d + dt.timedelta(days=1) if now().hour >= 12 else d)
     await context.bot.send_message(
-        OWNER_ID, f"🤖 Джарвис запущен.\n{ai}\n☀️ Следующий утренний бриф: {t:%d.%m %H:%M}\n"
+        OWNER_ID, reply_markup=MAIN_KB, text=f"🤖 Джарвис запущен.\n{ai}\n☀️ Следующий утренний бриф: {t:%d.%m %H:%M}\n"
                   f"🔄 Автообновление: {'вкл, версия ' + (updater.local_version()[:7] or 'новая') if updater.enabled() else 'выкл'}\n"
                   "⚠️ Работаю, только пока ноут включён и не спит.")
 
