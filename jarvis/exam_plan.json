@@ -1,0 +1,20 @@
+{
+  "exam": "Verkäufer/in Abschlussprüfung (IHK)",
+  "areas": ["Verkauf und Werbemaßnahmen", "Warenwirtschaft und Kalkulation", "Wirtschafts- und Sozialkunde", "Fachgespräch"],
+  "days": {
+    "2026-11-10": {"area": "Verkauf und Werbemaßnahmen", "topic": "Phasen des Verkaufsgesprächs: Kontaktaufnahme, Bedarfsermittlung (offene/geschlossene Fragen), Warenvorlage", "minutes": 30},
+    "2026-11-11": {"area": "Verkauf und Werbemaßnahmen", "topic": "Verkaufsargumentation (Sie-Stil, Warenmerkmal → Kundennutzen), Preisnennung (Sandwich-Methode), Einwandbehandlung, Kaufabschluss, Zusatzverkauf", "minutes": 30},
+    "2026-11-12": {"area": "Warenwirtschaft und Kalkulation", "topic": "Prozentrechnung, Rabatt und Skonto, Bezugskalkulation (Listeneinkaufspreis → Bezugspreis)", "minutes": 30},
+    "2026-11-13": {"area": "Warenwirtschaft und Kalkulation", "topic": "Verkaufskalkulation: Bezugspreis, Handlungskosten, Gewinn, Umsatzsteuer; Kalkulationszuschlag, Kalkulationsfaktor, Handelsspanne", "minutes": 60},
+    "2026-11-14": {"area": "Verkauf und Werbemaßnahmen", "topic": "Reklamation und Umtausch: Gewährleistung (Mängelarten, Nacherfüllung, Rücktritt, Minderung), Garantie, Kulanz", "minutes": 30},
+    "2026-11-15": {"area": "Warenwirtschaft und Kalkulation", "topic": "Wareneingang und Warenannahme, Lagerung, Lagerkennzahlen: durchschnittlicher Lagerbestand, Umschlagshäufigkeit, durchschnittliche Lagerdauer", "minutes": 60},
+    "2026-11-16": {"area": "Warenwirtschaft und Kalkulation", "topic": "Bestellung: Meldebestand, Mindestbestand, Höchstbestand; Inventur (Stichtags-, permanente, Stichprobeninventur); Warenwirtschaftssystem", "minutes": 30},
+    "2026-11-17": {"area": "Verkauf und Werbemaßnahmen", "topic": "Kaufvertrag (Antrag, Annahme, Pflichten), Zahlungsarten, Kasse und Kassenabrechnung, Kassenbericht", "minutes": 30},
+    "2026-11-18": {"area": "Wirtschafts- und Sozialkunde", "topic": "Berufsausbildung (BBiG, Ausbildungsvertrag, Probezeit, Rechte und Pflichten), Jugendarbeitsschutz, Arbeitsvertrag, Kündigung", "minutes": 60},
+    "2026-11-19": {"area": "Wirtschafts- und Sozialkunde", "topic": "Sozialversicherung (5 Zweige, wer zahlt), Lohn- und Gehaltsabrechnung: brutto → netto", "minutes": 30},
+    "2026-11-20": {"area": "Wirtschafts- und Sozialkunde", "topic": "Tarifvertrag, Betriebsrat und Mitbestimmung, Rechtsformen (Einzelunternehmen, GmbH, KG, AG), Verbraucherschutz", "minutes": 30},
+    "2026-11-21": {"area": "Verkauf und Werbemaßnahmen", "topic": "Werbung (AIDA, Werbeplanung, Werbeerfolgskontrolle), Verkaufsförderung, Warenpräsentation und Ladengestaltung", "minutes": 30},
+    "2026-11-22": {"area": "Gesamt", "topic": "Generalprobe: gemischter Test über alle Bereiche, Wiederholung der Fehler der Woche", "minutes": 90},
+    "2026-11-23": {"area": "Fachgespräch", "topic": "Leichte Wiederholung: Verkaufsgespräch laut durchspielen, Kalkulationsschema auswendig; früh schlafen", "minutes": 30}
+  }
+}

@@ -1,0 +1,9 @@
+my_config.json
+my_expenses.json
+schedule.json
+seed.json
+.env
+*.db
+*.db-journal
+VERSION
+__pycache__/
