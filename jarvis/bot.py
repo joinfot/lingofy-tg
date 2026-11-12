@@ -507,7 +507,7 @@ def system_prompt() -> str:
 (примерная честная оценка) и коротко скажи, сколько белка осталось и что можно доесть.
 Если он пишет еду С ЦЕНОЙ («кебаб 8€», «Lidl 12,50 — курица, рис») — вызови И log_food, И add_expense.
 Если в одном сообщении несколько вещей — по вызову на каждую. Если не сказал, когда — значит сегодня; «вчера» — вчерашняя дата.
-После записи всегда отвечай коротко в формате:
+ВСЕГДА заканчивай ответ текстом для него — никогда не отвечай пустым сообщением. После записи еды/трат отвечай коротко в формате:
 ✅ записал: …
 🍽 сегодня: N ккал, белок N г (осталось N г)
 💸 сегодня: N € · неделя: N €
@@ -548,6 +548,38 @@ def system_prompt() -> str:
 - Формат: YYYY-MM-DD, HH:MM. В ответах можно ссылаться на задачи по #номеру."""
 
 
+def describe_action(name: str, a: dict, out: str) -> str:
+    """Человеческое описание вызова инструмента — на случай, если AI не написал ответ."""
+    try:
+        if name == "add_tasks":
+            return "добавил: " + ", ".join(t["title"] + (f" ({t['date']}" + (f" {t['time']}" if t.get("time") else "") + ")"
+                                                         if t.get("date") else "") for t in a["tasks"])
+        if name == "complete_task":
+            return f"отметил выполненным #{a['id']}"
+        if name == "delete_task":
+            return f"удалил #{a['id']}"
+        if name == "reschedule_task":
+            return f"перенёс #{a['id']} на {a.get('date') or 'без даты'}" + (f" {a['time']}" if a.get("time") else "")
+        if name == "add_reminder":
+            return f"напомню {a['at']}: {a['text']}"
+        if name == "set_day":
+            return f"расписание {a['date']}: {KIND_RU.get(a['kind'], a['kind'])} {a.get('start') or ''}–{a.get('end') or ''}".rstrip("– ")
+        if name == "log_gym":
+            return f"зал засчитан ({a['date']}) 💪"
+        if name == "log_food":
+            return f"еда: {a['name']} — {a['kcal']:.0f} ккал, {a['protein']:.0f} г белка"
+        if name == "add_expense":
+            return f"трата: {a['amount']} {a.get('currency', 'EUR')} — {a.get('note') or a['category']}"
+    except Exception:  # noqa: BLE001
+        pass
+    return f"{name}: {out[:80]}"
+
+
+def quick_status() -> str:
+    d = today()
+    return f"{food_line(d)}\n💸 Сегодня: {spent_on(d):.2f} €"
+
+
 def ask_claude(text: str, image: bytes | None = None, media_type: str = "image/jpeg") -> str:
     if client is None:
         return "AI не подключён — добавь ANTHROPIC_API_KEY в .env. Пока работают /today, /week, /tasks."
@@ -563,9 +595,10 @@ def ask_claude(text: str, image: bytes | None = None, media_type: str = "image/j
                                          "data": base64.b64encode(image).decode()}},
             {"type": "text", "text": text or "Что на фото? Действуй по правилам для фото."}]}
     sys_prompt = system_prompt()  # один и тот же на весь цикл, иначе API ругается на thinking-блоки
+    actions: list[str] = []
     try:
-        for _ in range(10):
-            resp = client.messages.create(model=MODEL, max_tokens=2000, system=sys_prompt,
+        for _ in range(12):
+            resp = client.messages.create(model=MODEL, max_tokens=16000, system=sys_prompt,
                                           tools=TOOLS, messages=convo)
             if resp.stop_reason == "tool_use":
                 convo.append({"role": "assistant", "content": resp.content})
@@ -577,13 +610,20 @@ def ask_claude(text: str, image: bytes | None = None, media_type: str = "image/j
                         except Exception as e:  # noqa: BLE001
                             out = f"Ошибка: {e}"
                         log.info("tool %s %s -> %s", b.name, b.input, out[:200])
+                        actions.append(describe_action(b.name, b.input, out))
                         results.append({"type": "tool_result", "tool_use_id": b.id, "content": out})
                 convo.append({"role": "user", "content": results})
                 continue
-            answer = "".join(b.text for b in resp.content if b.type == "text").strip() or "Готово."
+            answer = "".join(b.text for b in resp.content if b.type == "text").strip()
+            if not answer:  # модель всё сделала, но не написала текст — рассказываем сами
+                log.warning("пустой ответ AI (stop=%s), actions=%d", resp.stop_reason, len(actions))
+                answer = ("✅ Сделал:\n" + "\n".join(f"• {a}" for a in actions)) if actions else \
+                    "🤔 Не понял, что сделать. Напиши чуть иначе."
+                answer += "\n\n" + quick_status()
             history.append({"role": "assistant", "content": answer})
             return answer
-        answer = "Запутался, сформулируй попроще 🙏"
+        answer = ("✅ Сделал:\n" + "\n".join(f"• {a}" for a in actions) + "\n\n" + quick_status()) if actions \
+            else "Запутался, сформулируй попроще 🙏"
     except Exception:  # noqa: BLE001
         log.exception("Claude error")
         history.clear()  # сбросить историю, чтобы ошибка не повторялась
@@ -1031,10 +1071,17 @@ def make_exam_lesson(topic: dict) -> dict | None:
               "Ровно 5 вопросов, как на настоящем экзамене IHK, правильный ответ в разных позициях. "
               "Только проверенные факты немецкого права и коммерческого счёта; если в расчёте есть числа — пересчитай.")
     try:
-        r = client.messages.create(model=MODEL, max_tokens=3000, messages=[{"role": "user", "content": prompt}])
-        txt = "".join(b.text for b in r.content if b.type == "text").strip()
-        txt = txt[txt.find("{"): txt.rfind("}") + 1]
-        return json.loads(txt)
+        for attempt in range(2):
+            r = client.messages.create(model=MODEL, max_tokens=16000, messages=[{"role": "user", "content": prompt}])
+            txt = "".join(b.text for b in r.content if b.type == "text").strip()
+            txt = txt[txt.find("{"): txt.rfind("}") + 1]
+            try:
+                data = json.loads(txt)
+                if data.get("questions"):
+                    return data
+            except json.JSONDecodeError:
+                log.warning("exam lesson: не JSON (попытка %d, stop=%s): %s", attempt + 1, r.stop_reason, txt[:200])
+        return None
     except Exception:  # noqa: BLE001
         log.exception("exam lesson failed")
         return None
