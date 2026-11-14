@@ -544,7 +544,16 @@ history: list[dict] = []
 
 def system_prompt() -> str:
     n = now()
-    return f"""Ты — Джарвис, личный ассистент владельца (как Джарвис у Тони Старка): умный, чёткий, с лёгким юмором. Пиши по-русски, коротко, по-дружески, без воды.
+    return f"""Ты — Джарвис, личный ассистент владельца. Пиши по-русски.
+
+ГЛАВНОЕ ПРАВИЛО — КОРОТКО. Он ненавидит простыни текста.
+- Обычный ответ: 1–3 строки. Максимум для сложного вопроса — 6 строк.
+- Никаких заголовков, **жирного**, длинных списков и разделов.
+- Не пересказывай весь день и не перечисляй все задачи, если он не просил.
+- Не задавай больше одного вопроса за раз. Чаще — вообще без вопросов.
+- Не объясняй, что ты сделал и почему, не извиняйся, не философствуй, без мотивашек.
+- Записал что-то — ответь одной строкой: «✅ донер, 750 ккал · белок 85/150 · сегодня 8 €».
+- Если нужен длинный список (план недели) — отдай голыми строками, без вступления и итогов.
 Ты не только планировщик. Он может спросить тебя ЧТО УГОДНО — про немецкий, экзамен, бюрократию, еду, зал, деньги, шмотки,
 да хоть «что посмотреть вечером» — и ты отвечаешь по существу, как умный друг, сам, без отсылок «спроси у кого-то».
 Если вопрос про то, что происходит сейчас (цены, новости, часы работы, погода где-то) и есть веб-поиск — поищи.
@@ -554,16 +563,12 @@ def system_prompt() -> str:
 
 {cfg("profile", "")}
 Вопросы «во сколько выходить/как ехать» — через инструмент get_commute. По плану подготовки к экзамену каждый день своя тема, объясняй по-русски с немецкими терминами. Любые траты, которые он упоминает, записывай через add_expense (несколько трат — несколько вызовов).
-Цель по еде: {PROTEIN_GOAL:.0f} г белка и {KCAL_GOAL:.0f} ккал в день. Когда пишет, что съел, — log_food
-(примерная честная оценка) и коротко скажи, сколько белка осталось и что можно доесть.
+Цель по еде: {PROTEIN_GOAL:.0f} г белка и {KCAL_GOAL:.0f} ккал в день. Съел — log_food (честная оценка) и одна строка с остатком.
 Если он пишет еду С ЦЕНОЙ («кебаб 8€», «Lidl 12,50 — курица, рис») — вызови И log_food, И add_expense.
 Если в одном сообщении несколько вещей — по вызову на каждую. Если не сказал, когда — значит сегодня; «вчера» — вчерашняя дата.
 Внизу у него есть кнопки (Сегодня, Завтра, Еда, Траты, Был в зале, Когда выходить, Экзамен, Неделя) — они работают сами, без тебя.
 Ошибки и дубли в еде/тратах исправляй сам: list_records → delete_food/delete_expense. Перед записью еды проверь list_records, чтобы не задублировать.
-ВСЕГДА заканчивай ответ текстом для него — никогда не отвечай пустым сообщением. После записи еды/трат отвечай коротко в формате:
-✅ записал: …
-🍽 сегодня: N ккал, белок N г (осталось N г)
-💸 сегодня: N € · неделя: N €
+ВСЕГДА отвечай хоть одной строкой — никогда не пустым сообщением.
 Вещи для перепродажи: «выставил C0003 на аккаунт X», «продал A0123 за 45» → item_update.
 
 ЕСЛИ ПРИШЛО ФОТО — пойми, что на нём:
@@ -601,6 +606,7 @@ def system_prompt() -> str:
 - Формат: YYYY-MM-DD, HH:MM. В ответах можно ссылаться на задачи по #номеру."""
 
 
+CHAT_MAX_TOKENS = int(os.getenv("CHAT_MAX_TOKENS", "1200"))  # потолок, чтобы не было простыней
 WEB_SEARCH = {"type": "web_search_20250305", "name": "web_search", "max_uses": 3}
 _web_ok = os.getenv("WEB_SEARCH", "1") != "0"
 
@@ -610,12 +616,14 @@ def _create(sys_prompt, convo):
     global _web_ok
     tools = TOOLS + ([WEB_SEARCH] if _web_ok else [])
     try:
-        return client.messages.create(model=MODEL, max_tokens=16000, system=sys_prompt, tools=tools, messages=convo)
+        return client.messages.create(model=MODEL, max_tokens=CHAT_MAX_TOKENS, system=sys_prompt, tools=tools,
+                                      messages=convo)
     except Exception as e:  # noqa: BLE001
         if _web_ok and "web_search" in str(e):
             log.warning("веб-поиск недоступен, работаю без него: %s", e)
             _web_ok = False
-            return client.messages.create(model=MODEL, max_tokens=16000, system=sys_prompt, tools=TOOLS, messages=convo)
+            return client.messages.create(model=MODEL, max_tokens=CHAT_MAX_TOKENS, system=sys_prompt, tools=TOOLS,
+                                          messages=convo)
         raise
 
 
@@ -1035,46 +1043,44 @@ async def job_commute(context: ContextTypes.DEFAULT_TYPE):
 
 
 def build_brief(d: dt.date) -> str:
-    """Утренний бриф: дата, погода, день, дорога, дела, зал, экзамен."""
-    parts = [f"☀️ Доброе утро! Сегодня {WEEKDAYS_FULL[d.weekday()]}, {d.day} {MONTHS[d.month - 1]}"]
-    parts.append(weather.today_text(d))
+    """Утренний бриф: коротко — дата, погода одной строкой, день, дорога, дела."""
+    lines = [f"☀️ {WEEKDAYS_FULL[d.weekday()].capitalize()}, {d.day} {MONTHS[d.month - 1]}"]
+    try:
+        w = weather.summary(d)
+        e, desc = weather._code(w["day_code"])
+        line = f"{e} {w['tmin']:.0f}…{w['tmax']:.0f}°, {desc}"
+        if w["rain_hours"]:
+            line += " ☂️ зонт"
+        lines.append(line)
+    except Exception:  # noqa: BLE001
+        pass
 
-    day = day_header(d).split(": ", 1)[1]
+    lines.append("📅 " + day_header(d).split(": ", 1)[1])
     p = commute_plan(d)
-    block = f"📅 {day}"
     if p:
-        block += "\n" + transit.fmt(p, TZ, header=False)
-    parts.append(block)
+        lines.append(f"🚿 {p['get_ready']:%H:%M} · 🚪 {p['leave']:%H:%M}" +
+                     (f" · 🚇 {p['route']['first_ride']['label']} {p['route']['first_ride']['dep'].astimezone(TZ):%H:%M}"
+                      if p.get("route") and p["route"].get("first_ride") else ""))
 
-    od, ts = overdue(), tasks_on(d)
-    if ts or od:
-        lines = ["📝 Дела на сегодня:"] + [task_line(t) for t in ts]
-        if od:
-            lines += ["⚠️ Хвосты с прошлых дней:"] + [task_line(t) for t in od]
-        parts.append("\n".join(lines))
-    else:
-        parts.append("📝 Дел на сегодня нет — напиши, что хочешь сделать")
+    ts, od = tasks_on(d), overdue()
+    if ts:
+        lines.append("")
+        lines += [task_line(t) for t in ts[:6]]
+        if len(ts) > 6:
+            lines.append(f"…и ещё {len(ts) - 6}")
+    if od:
+        lines.append(f"⚠️ Хвостов с прошлых дней: {len(od)} (кнопка «Сегодня» — покажу)")
 
-    y = d - dt.timedelta(days=1)
-    yk, yp = food_day(y)
-    money = f"📒 Вчера: {yk:.0f} ккал, белок {yp:.0f} г · потрачено {spent_on(y):.2f} €"
-    le = last_entry("expenses")
-    if not le or (d - le).days >= 2:
-        money += f"\n✍️ Траты последний раз записывал {ago(le)} — скинь, что тратил"
-    parts.append(money)
-
-    g = gym_week(d)
-    gym = f"🏋️ Зал на этой неделе: {g}/3"
-    if g < 2 and d.weekday() >= 3:
-        gym += " — пора догонять"
-    parts.append(gym)
-
+    tail = f"🏋️ {gym_week(d)}/3"
     left = (EXAM_DATE - d).days
     if 0 < left <= 21:
-        parts.append(f"📝 До экзамена {left} дн.")
+        tail += f" · 📚 экзамен через {left} дн."
     elif left == 0:
-        parts.append("📝 СЕГОДНЯ ЭКЗАМЕН. Удачи, ты всё сможешь 💪")
-    return "\n\n".join(parts)
+        tail += " · 📚 СЕГОДНЯ ЭКЗАМЕН 💪"
+    y = d - dt.timedelta(days=1)
+    tail += f" · вчера {food_day(y)[1]:.0f} г белка, {spent_on(y):.2f} €"
+    lines += ["", tail]
+    return "\n".join(lines)
 
 
 def brief_time(d: dt.date) -> dt.datetime:
@@ -1095,10 +1101,9 @@ async def send_brief(context: ContextTypes.DEFAULT_TYPE, d: dt.date):
     await send_long(context.bot, OWNER_ID, text, day_keyboard(d, True))
     if client and tasks_on(d):
         plan = await asyncio.to_thread(
-            ask_claude, "[авто, утро] Расставь мои дела на сегодня по времени с учётом смены/школы, дороги "
-                        "и погоды. ОБЯЗАТЕЛЬНО проставь каждой задаче без времени время через reschedule_task "
-                        "(дата сегодняшняя) — по нему я получу напоминания днём. Ответ коротко, списком со "
-                        "временем. Одна строка мотивации в конце.")
+            ask_claude, "[авто, утро] Проставь каждой сегодняшней задаче без времени время через reschedule_task "
+                        "с учётом смены/школы и дороги. В ОТВЕТЕ — ТОЛЬКО строки «ЧЧ:ММ — дело», ничего больше: "
+                        "ни вступления, ни итогов, ни вопросов, ни мотивации.")
         await send_long(context.bot, OWNER_ID, plan)
 
 
